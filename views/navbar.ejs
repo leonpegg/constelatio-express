@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     <div id="nav-bar" role="banner">
     	<div class="wrapper padding-30">
             <p id="logo-mini">
@@ -23,3 +24,28 @@
             </nav>
         </div>
     </div>
+=======
+<div id="nav-bar" role="banner">
+    <div class="wrapper padding-30">
+        <p id="logo-mini">
+            <a href="/">
+                Constelat
+                <span>io</span>
+            </a>
+        </p>
+        <!--{{> loginButtons}}-->
+        <nav id="navigation" role="navigation">
+            <ul>
+                <% if (currentUser) { %>
+                    <%= include menu/logout.ejs %>
+                <% } else { %>
+                    <%= include menu/login.ejs %>
+                <% } %>
+                <li class="menu-link">
+                    <a href="explore">Browse</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+>>>>>>> bd9da51b5578b66a59ba3e6cfcf86216215fa626
