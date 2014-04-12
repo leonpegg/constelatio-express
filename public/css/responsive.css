@@ -1,0 +1,65 @@
+@media only screen and (max-width: 580px){
+	/*2 Cols layout */
+	#results .item{
+
+	}
+}
+
+@media only screen and (min-width: 581px) and (max-width: 1200px){
+	/* 3 Cols layout */
+	#results .item{
+		width: 28%;
+		margin: 0 2% 2% 0;
+		padding: 1% 2% 2% 2%;
+	}
+	#results .item:nth-child(3n){
+    	margin-right: 0;
+	}
+}
+@media only screen and (min-width: 1200px){
+	#search .wrapper{
+		width: 1150px;
+	}
+	#footer .wrapper{
+		width: 1150px;
+	}
+	#login .wrapper{
+		width: 1150px;
+	}
+}
+@media only screen and (min-width: 1201px) and (max-width: 1600px){
+	/* 4 Cols layout */
+	#results .item{
+		width: 19.5%;
+		margin: 0 2% 2% 0;
+		padding: 1% 2% 2% 2%;
+	}
+	#results .item:nth-child(4n){
+    	margin-right: 0;
+	}
+
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 2000px){
+	/* 5 Cols layout */
+	#results .item{
+		width: 17.2%;
+		margin: 0 1% 1% 0;
+		padding: 0.5% 1% 1% 1%;
+	}
+	#results .item:nth-child(5n){
+    	margin-right: 0;
+	}
+}
+
+@media only screen and (min-width: 2001px) and (max-width: 2400px){
+	/* 10 Cols layout */
+	#results .item{
+		width: 8.525%;
+		margin: 0 0.5% 0.5% 0;
+		padding: 0.25% 0.5% 0.5% 0.5%;
+	}
+	#results .item:nth-child(10n){
+    	margin-right: 0;
+	}
+}

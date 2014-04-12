@@ -1,0 +1,25 @@
+    <div id="nav-bar" role="banner">
+    	<div class="wrapper padding-30">
+            <p id="logo-mini">
+                <a href="{{pathFor 'homepage'}}">
+                    Constelat<span>io</span>
+                </a>
+            </p>
+            <!--{{> loginButtons}}-->
+            <nav id="navigation" role="navigation">
+                <ul>
+                    <!--<li><a href="#">About</a></li>-->
+                    
+
+                    {{#if currentUser}}
+                        <!-- user is logged -->
+                        {{> menuLogout}}
+                    {{else}}
+                        <!-- user is not logged -->
+                        {{> menuLogin}}
+                    {{/if}}
+                    <li class="menu-link"><a href="{{pathFor 'explore'}}">Browse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
