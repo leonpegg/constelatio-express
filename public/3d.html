@@ -1,0 +1,296 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>3D Interactive Asteroid Space Visualization - Asterank</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <link href="/static/css/full3d.css" rel="stylesheet" />
+    
+
+    <script>
+      window.passthrough_vars = {
+        
+      };
+    </script>
+	</head>
+<body>
+  <noscript>Sorry, this page requires Canvas/WebGL, so you'll need to enable JavaScript.</noscript>
+
+  
+
+  <script type="x-shader/x-vertex" id="vertexshader">
+    // MIT License.
+    // Copyright Ian Webster 2012 (asterank.com)
+    // https://github.com/typpo/asterank/blob/master/LICENSE
+    #define pi 3.141592653589793238462643383279
+
+    attribute vec3 value_color;
+    varying vec3 vColor;
+
+    attribute float size;
+
+    uniform float earth_i;
+    uniform float earth_om;
+
+    uniform float jed;
+
+    attribute float a;
+    attribute float e;
+    attribute float i;
+    attribute float o;
+    attribute float P;
+    attribute float ma;
+    attribute float n;
+    attribute float w;
+    attribute float epoch;
+
+    attribute float locked;
+    attribute float is_planet;
+    varying float vLocked;
+    varying float vPlanet;
+
+    vec3 getAstroPos() {
+      float i_rad = (i) * pi/180.0;
+      float o_rad = (o) * pi/180.0; // longitude of ascending node
+      float p_rad = (w) * pi/180.0; // LONGITUDE of perihelion
+      float ma_rad = ma * pi/180.0;
+      float n_rad;
+      if (P > 0.) {
+        n_rad = 2.0 * pi / P;
+      }
+      else {
+        n_rad = n * pi/180.0; // mean motion
+      }
+
+      float d = jed - epoch;
+      float M = ma_rad + n_rad * d;
+
+      // Estimate eccentric and true anom using iterative approx
+      float E0 = M;
+      // converted do/while:
+      float E1 = M + e * sin(E0);
+      float lastdiff = abs(E1-E0);
+      E0 = E1;
+      for (int foo=0; foo < 25; foo++) {
+        E1 = M + e * sin(E0);
+        lastdiff = abs(E1-E0);
+        E0 = E1;
+        if (lastdiff > 0.0000001) {
+          break;
+        }
+      }
+      float E = E0;
+
+      float v = 2.0 * atan(sqrt((1.0+e)/(1.0-e)) * tan(E/2.0));
+
+      // radius vector, in AU
+      float r = a * (1.0 - e*e) / (1.0 + e * cos(v)) * 50.;  // 50 pixels per AU
+
+      // heliocentric coords
+      float X = r * (cos(o_rad) * cos(v + p_rad - o_rad) - sin(o_rad) * sin(v + p_rad - o_rad) * cos(i_rad));
+      float Y = r * (sin(o_rad) * cos(v + p_rad - o_rad) + cos(o_rad) * sin(v + p_rad - o_rad) * cos(i_rad));
+      float Z = r * (sin(v + p_rad - o_rad) * sin(i_rad));
+      return vec3(X, Y, Z);
+    }
+
+    void main() {
+      vColor = value_color;
+      vLocked = locked;
+      vPlanet = is_planet;
+
+      vec3 newpos = getAstroPos();
+      vec4 mvPosition = modelViewMatrix * vec4(newpos, 1.0);
+      gl_Position = projectionMatrix * mvPosition;
+      gl_PointSize = size;
+    }
+</script>
+<script type="x-shader/x-fragment" id="fragmentshader">
+    // MIT License.
+    // Copyright Ian Webster 2012 (asterank.com)
+    // https://github.com/typpo/asterank/blob/master/LICENSE
+    varying vec3 vColor;
+    varying float vLocked;
+    varying float vPlanet;
+    uniform sampler2D planet_texture;
+    uniform sampler2D small_roid_texture;
+    uniform sampler2D small_roid_circled_texture;
+
+    void main() {
+      if (vLocked < .5) {
+        if (vPlanet < .5) {
+          gl_FragColor = vec4(vColor, 1.0) * texture2D(small_roid_texture,
+            vec2(gl_PointCoord.x, 1.0 - gl_PointCoord.y));
+        }
+        else {
+          gl_FragColor = vec4(vColor, 1.0) * texture2D(planet_texture,
+            vec2(gl_PointCoord.x, 1.0 - gl_PointCoord.y));
+        }
+      }
+      else {
+        gl_FragColor = vec4(vColor, 1.0) * texture2D(small_roid_circled_texture,
+          vec2(gl_PointCoord.x, 1.0 - gl_PointCoord.y));
+      }
+    }
+</script>
+
+<script type="application/x-glsl" id="sky-vertex">
+varying vec2 vUV;
+varying float vDensity;
+varying float vDiff;
+
+void main() {
+  vUV = uv;
+  vec4 pos = vec4(position, 1.0);
+  gl_Position = projectionMatrix * modelViewMatrix * pos;
+}
+</script>
+
+<script type="application/x-glsl" id="sky-density">
+uniform sampler2D texture;
+varying vec2 vUV;
+
+void main() {
+  vec4 sample = texture2D(texture, vUV);
+  gl_FragColor = vec4(sample.xyz, sample.w);
+}
+</script>
+
+  <div id="show_sidebar_container" class="sidebar">
+    <span id="show_sidebar" style="float:right;cursor:pointer;">+</span>
+  </div>
+  <div id="sidebar" class="sidebar">
+    <span id="hide_sidebar" style="float:right;cursor:pointer;">-</span>
+    <p>
+    &laquo; <a href="/">Asteroid data view</a>
+    </p>
+
+    <div class="fb-like" data-href="http://www.asterank.com/3d/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+    <a style="font-size:10px;" href="https://twitter.com/share" data-url="http://asterank.com/3d/" data-counturl="http://asterank.com/3d/" class="twitter-share-button" data-lang="en">Tweet</a>
+<div>
+    <g:plusone size="small" count="false"></g:plusone>
+</div>
+
+
+    <hr/>
+    <div id="objects-of-interest-container" style="text-align:center;display:none;">
+      <span>Significant Objects<br>&amp; estimated value</span>
+      <table id="objects-of-interest">
+        <tr id="sun-selector" data-full-name="sun" style="background-color:green;">
+          <td colspan="2"><a href="#">Sun</a> (default view)</td>
+        </tr>
+        <tr id="earth-selector" data-full-name="earth">
+          <td colspan="2"><a href="#">Earth</a></td>
+        </tr>
+        <tr id="da14-selector" data-full-name="2012 DA14">
+          <td><a href="#">2012 DA14</a></td>
+          <td>$665 million</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+	<!-- three.js container -->
+  <div id="container"></div>
+	<!-- info on screen display -->
+  <div id="loading">
+    <!--<img src="/images/loader.gif"/> Loading <span id="loading-text"></span>...-->
+    <img src="/static/img/loader.gif"/> Loading asteroids from database...
+  </div>
+  <div id="not-supported" style="display:none;">
+    <p>
+    <strong>Sorry, your browser or graphics card doesn't support webgl.  Most features of the simulation will not be available.</strong>
+    </p>
+    <p>
+    You may be able to see the simulation if you..
+    </p>
+    <h2><a href="http://google.com/chrome">Get Chrome</a><br>or<br><a href="http://getfirefox.com">Get Firefox</a></h2>
+    <p>
+    <input type="submit" onClick="window.location='/3d/notsupported.html';" value="See video preview (recommended)"/><br>
+    <input type="submit" onClick="$('#not-supported').hide();return false;" value="Ignore for now"/>
+    </p>
+  </div>
+	<div id="info">
+    <div id="caption-container">
+      <div id="main-caption" class="top">
+      </div>
+      <div id="other-caption" class="top">
+      </div>
+    </div>
+		<div class="bottom" id="inlineDoc" >
+      <span style="font-size:12px;color:#fff">
+      <strong>Rotate</strong>: left click + drag; <strong>Pan</strong>: right click + drag
+      <br>
+      <strong>Zoom</strong>: scroll/middle click + drag; <strong>Fullscreen</strong>: press f
+      <br>
+      Location of all objects shown is scientifically accurate.</span>
+		</div>
+	</div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!--
+  <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
+  -->
+  
+<script type="text/javascript" src="/static/js/3d/lib/three.js/three.min.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/lib/three.js/Detector.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/lib/three.js/TrackballControls.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/lib/threex/THREEx.WindowResize.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/lib/threex/THREEx.FullScreen.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/lib/dat.gui.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/ellipse.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/ephemeris.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/util.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/main.js"></script>
+
+<script type="text/javascript" src="/static/js/3d/full3d_loader.js"></script>
+
+
+
+<script type="text/javascript">
+if(~document.location.href.indexOf('asterank.com')) {
+(function() {
+(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config".split(" ");
+for(e=0;e<g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
+})();
+mixpanel.init("6b34941ba1e8a39264cee7fccab432f2");mixpanel.track('3d');
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-32180949-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+}
+else {
+  mixpanel = {track: function() {}};
+}</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=230286373664292";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+</body>
+</html>
