@@ -6,6 +6,10 @@ router = express.Router()
     res.render "homepage",
       currentUser: ""
 
+  # render partial templates
+  .get '/partials/:name',  (req, res) ->
+    res.render 'partials/' + req.params.name
+
   # GET explore 
   .get "/explore", (req, res) ->
     res.render "explore",
