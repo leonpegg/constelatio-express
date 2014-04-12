@@ -11,9 +11,9 @@
             a#logout-link(href='#') Logout
           // Add user information here
           li
-            a.username(href='{{pathFor "profile"}}')  Hi {{currentUser.username}}!
+            a.username(href='/profile')  Hi {{currentUser.username}}!
         else
           li
-            a#login-link(href='{{pathFor "login"}}') Login
+            a#login-link(href='/login') Login
         li.menu-link
           a(href='explore') Browse
