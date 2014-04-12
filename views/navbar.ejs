@@ -1,7 +1,7 @@
 <div id="nav-bar" role="banner">
     <div class="wrapper padding-30">
         <p id="logo-mini">
-            <a href="{{pathFor 'homepage'}}">
+            <a href="/">
                 Constelat
                 <span>io</span>
             </a>
@@ -9,15 +9,13 @@
         <!--{{> loginButtons}}-->
         <nav id="navigation" role="navigation">
             <ul>
-                <!--<li><a href="#">About</a></li>-->
-
                 <% if (currentUser) { %>
                     <%= include menu/logout.ejs %>
                 <% } else { %>
                     <%= include menu/login.ejs %>
                 <% } %>
                 <li class="menu-link">
-                    <a href="{{pathFor 'explore'}}">Browse</a>
+                    <a href="explore">Browse</a>
                 </li>
             </ul>
         </nav>
