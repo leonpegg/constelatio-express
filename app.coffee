@@ -21,7 +21,7 @@ app.use require('express-coffee')
 app.use express.static(path.join(__dirname, "public"))
 
 app.use "/api", (req, res) ->
-  url = "www.asterank.com/api/" + req.url
+  url = "http://www.asterank.com/api/" + req.url
   r = null
   if req.method is "POST"
     r = request.post(
