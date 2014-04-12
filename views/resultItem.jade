@@ -1,0 +1,26 @@
+article.item(role='article')
+  a(href='{{pathFor "resultPage"}}')
+    h2 {{name}}
+    img(src='{{imagePath}}', alt='{{imageDesc}}')
+  .item-desc
+    p
+      | Semimajor Axis :
+      span {{semimajorAxis}}
+      br
+      | Eccentricity :
+      span {{eccentricity}}
+      br
+      | Inclination :
+      span {{inclination}}
+      br
+      | Perihelion Arg. :
+      span {{perihelionArg}}
+      br
+      | Asc. Node :
+      span {{ascendingNode}}
+      br
+      | Mean Anom. :
+      span {{meanAnomaly}}
+  footer.item-footer
+    a.comment(href='#') Comment
+    a.bookmark(href='#') Bookmark

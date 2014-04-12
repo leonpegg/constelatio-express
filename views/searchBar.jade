@@ -1,0 +1,112 @@
+section#search.padding-30
+  .wrapper
+    #search-bar
+      form
+        .simple-search
+          .inner-bar
+            input(type='text', name='search', placeholder='Enter asteroid name, number, designation...')
+            input(type='submit', name='search', value='Go')
+            span
+              a#options.more-options(href='#') More Options
+        .advanced-search
+          .filters
+            #observation.float-left
+              h4 Observation
+              ul.checkbox-list
+                li
+                  label(for='date') Date
+                  input#date(type='date', name='date')
+                li
+                  legend Observatory
+                  select#observatory(aria-label='observatory')
+                    option(value='mauna-kea') Mauna Kea
+            .float-left
+              h4 Object Type
+              ul.checkbox-list
+                li
+                  input#neo(type='checkbox', name='neo', value='value')
+                  label(for='neo') NEOs
+                li
+                  input#1-km-neo(type='checkbox', name='1-km-neo', value='value')
+                  label(for='1-km-neo') 1 + KM NEOs
+                li
+                  input#hazardous(type='checkbox', name='hazardous', value='value')
+                  label(for='hazardous') Hazardous
+            .float-left
+              h4 Orbit Type
+              ul.checkbox-list
+                li
+                  input#inner-solar.category(type='checkbox', name='inner-solar', value='value')
+                  label(for='inner-solar') Inner Solar
+                  ul.checkbox-children
+                    li
+                      input#atiras(type='checkbox', name='atiras', value='value')
+                      label(for='atiras') Atiras
+                    li
+                      input#atens(type='checkbox', name='atens', value='value')
+                      label(for='atens') Atens
+                    li
+                      input#apollos(type='checkbox', name='apollos', value='value')
+                      label(for='Apollos') Apollos
+                li
+                  input#near-mars.category(type='checkbox', name='near-mars', value='value')
+                  label(for='near-mars') Near Mars Objects
+                  ul.checkbox-children
+                    li
+                      input#hungarias(type='checkbox', name='hungarias', value='value')
+                      label(for='hungarias') Hungarias
+                    li
+                      input#mars-crossers(type='checkbox', name='mars-crossers', value='value')
+                      label(for='mars-crossers') Mars Crossers
+                li
+                  input#outer-solar.category(type='checkbox', name='outer-solar', value='value')
+                  label(for='outer-solar') Outer Solar
+                  ul.checkbox-children
+                    li
+                      input#centaurus(type='checkbox', name='centaurus', value='value')
+                      label(for='centaurus') Centaurus
+                    li
+                      input#plutinos(type='checkbox', name='plutinos', value='value')
+                      label(for='plutinos') Plutinos
+                    li
+                      input#classical(type='checkbox', name='classical', value='value')
+                      label(for='classical') Classical TNOs
+                    li
+                      input#other(type='checkbox', name='other', value='value')
+                      label(for='other') Other TNOs
+            #properties.float-left
+              h4 Properties
+              ul.checkbox-list
+                li
+                  label(for='semimajor') Semimajor Axis
+                  input#semimajor(type='number', name='semimajor', value='value')
+                li
+                  label(for='eccentricity') Eccentricity
+                  input#eccentricity(type='number', name='eccentricity', value='value')
+                li
+                  label(for='inclination') Inclination
+                  input#inclination(type='number', name='inclination', value='value')
+                li
+                  label(for='perihelion-arg') Perihelion Arg.
+                  input#perihelion-arg(type='number', name='perihelion-arg', value='value')
+                li
+                  label(for='ascending-node') Asc. Node
+                  input#ascending-node(type='number', name='ascending-node', value='value')
+                li
+                  label(for='mean-anomaly') Mean Anomaly
+                  input#mean-anomaly(type='number', name='mean-anomaly', value='value')
+                li
+                  label(for='mean-daily-motion') Mean Daily Motion
+                  input#mean-daily-motion(type='number', name='mean-daily-motion', value='value')
+                li
+                  label(for='perihelion-dist') Perihelion Dist.
+                  input#perihelion-dist(type='number', name='perihelion-dist', value='value')
+                li
+                  label(for='aphelion-dist') Aphelion Dist.
+                  input#aphelion-dist(type='number', name='aphelion-dist', value='value')
+                li
+                  label(for='period') Period
+                  input#period(type='number', name='period', value='value')
+                li
+                  label(for='abs-magnitude') Abs. Magnitude
+                  input#abs-magnitude(type='number', name='abs-magnitude', value='value')

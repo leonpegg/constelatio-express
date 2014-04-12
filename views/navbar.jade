@@ -1,0 +1,19 @@
+#nav-bar(role='banner')
+  .wrapper.padding-30
+    p#logo-mini
+      a(href='/')
+        | Constelat
+        span io
+    nav#navigation(role='navigation')
+      ul
+        if currentUser
+          li
+            a#logout-link(href='#') Logout
+          // Add user information here
+          li
+            a.username(href='{{pathFor "profile"}}')  Hi {{currentUser.username}}!
+        else
+          li
+            a#login-link(href='{{pathFor "login"}}') Login
+        li.menu-link
+          a(href='explore') Browse

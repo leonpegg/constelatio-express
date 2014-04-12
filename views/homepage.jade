@@ -1,5 +1,62 @@
 extends layout
 
+block intro
+  #intro.wrapper.padding-30
+    h1
+      | The place where all astronomers share their celestial objects and observations
+    .opaque-container
+      p
+        | The first open-source platform for sharing crowd-sourced asteroid imagery! Including observations that have already have been logged, as well as newly observed Near Earth Objects.
+      .start-buttons
+        a.btn-get-started(href='{{pathFor "login"}}') Get started
+        a.btn-explore(href='{{pathFor "explore"}}') Explore
+      .sponsors
+        p.float-left Proudly supported by
+        ul.inline-menu.float-left
+          li
+            a(href='http://www.nasa.gov/', title='NASA')
+              img(src='img/NASA-logo-small.png', alt='NASA Logo')
+          li
+            a(href='http://www.minorplanetcenter.net/', title='Minor Planet Center')
+              img(src='img/MPC-logo-small.png', alt='Minor Planet Center Logo')
+
 block content
-  h1= title
-  p Welcome to #{title}
+  section#background.wrapper.padding-30
+    article(role='article')
+      h2 About asteroid hunting
+      p
+        | In June 2013, NASA announced a
+        a(href='http://www.nasa.gov/mission_pages/asteroids/initiative/') grand challenge
+        | to &#34;find all asteroid threats to human populations and know what to do about them&#34;. This Grand Challenge expands the role of individual inventors, tinkerers, citizen scientists, developers and technologists. Asteroids pose the threat of impact, while presenting an opportunity to expand our knowledge of this natural phenomenon. The Grand Challenge seeks to shine a spotlight on asteroids, and garner global participation in providing impact prevention solutions.
+      p
+        | Many of the millions of yet undiscovered Near Earth Objects require space-based hardware or large professional scopes to locate. No mechanism currently exists for amateurs to easily and effectively share imagery in a way that contributes to the collective picture of the threat of asteroids from space.
+      p.more
+        a(href='http://www.nasa.gov/mission_pages/asteroids/initiative/') See more about NASA program
+  section#main-features.wrapper.padding-30
+    h2 Share your imagery and contribute to research
+    article(role='article')
+      .article-image
+        img(src='img/img-shuttle.png', alt='Image of NASA"s Discovery space shuttle')
+      h3 Space exploration
+      p
+        | Space exploration is the most exciting feat mankind has ever achieved. Be part of it by helping us cataloging Near Earth Objects!
+    article(role='article')
+      .article-image
+        img(src='img/img-observatory.png', alt='Image of the Milky Way with ESO Paranal Observatory')
+      h3 Astronomers recognition
+      p
+        | Always dreamed about working inside an observatory? Gain exposure by displaying your observations and chatting with the astronomical community.
+    article(role='article')
+      .article-image
+        img(src='img/img-asteroid.png', alt='Artist view of an asteroid')
+      h3 Armaggeddon hero
+      p
+        | Who knows? You might be the first to discover the first Scale 10 NEO. You might also be the first to land on the asteroid with nuclear weaponry in the purpose of saving Earth but that&#39;s another story.
+    .button-challenge
+      a(href='/explore') Browse Gallery
+  section#challenge.wrapper.padding-30
+    h2 We are featured on NASA Space Apps Challenge!
+    p
+      | The International Space Apps Challenge is an international mass collaboration focused on space exploration that takes place over 48-hours in cities around the world. The event embraces collaborative problem solving with a goal of producing relevant open-source solutions to address global needs applicable to both life on Earth and life in space.
+    .button-challenge
+      a(href='http://2014.spaceappschallenge.org/challenge/asteroid-imagery-sharing/') Support us

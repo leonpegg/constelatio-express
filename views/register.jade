@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .results-bg
+    section#login.padding-30
+      .wrapper
+        .float-left
+          h2 Register
+          .login-inner-p
+            p
+              | So, we heard you wanna join us?
+              | Please begin by filling in this cool register form, young padawan.
+            form#register-form
+              p
+                label(for='register-username') Username
+                br
+                input#register-username(type='text', name='register-username', placeholder='Your username', required='', aria-required='true')
+                span.error-username
+              p
+                label(for='register-email') E-mail
+                br
+                input#register-email(type='email', name='register-email', placeholder='Your e-mail', required='', aria-required='true')
+                span.error-email
+              p
+                label(for='register-pwd') Password
+                br
+                input#register-pwd(type='password', name='register-pwd', placeholder='Your password', pattern='^[0_9a-zA-Z!@#$%]{8,}', required='', aria-required='true', title='Password must contain 8 chars. min. "!@#$%" special chars. allowed')
+                span.error-pwd
+              input#register-submit(type='submit', name='register-submit', value='Apply')
+        .float-left
+          h2 Too long?
+          .social-login
+            a.facebook-login(href='#') Login with Facebook
+            a.twitter-login(href='#') Login with Twitter
+            // <a href="#" class="googleplus-login">Login with Google Plus</a>
+          h2 Already have an account?
+          .button-challenge
+            a(href='/login') Login Now !

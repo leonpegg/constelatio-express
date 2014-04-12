@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  include searchBar
+  .results-bg
+    section#results.wrapper.padding-30
+      #search-results
+        include resultItem
+      .button-challenge
+        a(href='#') More results
