@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-    <div id="nav-bar" role="banner">
-    	<div class="wrapper padding-30">
-            <p id="logo-mini">
-                <a href="{{pathFor 'homepage'}}">
-                    Constelat<span>io</span>
-                </a>
-            </p>
-            <!--{{> loginButtons}}-->
-            <nav id="navigation" role="navigation">
-                <ul>
-                    <!--<li><a href="#">About</a></li>-->
-                    
-
-                    {{#if currentUser}}
-                        <!-- user is logged -->
-                        {{> menuLogout}}
-                    {{else}}
-                        <!-- user is not logged -->
-                        {{> menuLogin}}
-                    {{/if}}
-                    <li class="menu-link"><a href="/explore">Browse</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-=======
 <div id="nav-bar" role="banner">
     <div class="wrapper padding-30">
         <p id="logo-mini">
@@ -48,4 +21,3 @@
         </nav>
     </div>
 </div>
->>>>>>> bd9da51b5578b66a59ba3e6cfcf86216215fa626
