@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  include searchBar
+  .results-bg
+    section#profile.padding-30
+      .wrapper
+        h2 {{username}}&#39;s Profile
+        p
+          | Here you can review all your latest submissions and check your personal information.
+          br
+          | You can also submit your latest imagery and observations.
+        .float-left
+          h3 My latest submissions
+          p.more
+            a(href='#') View all submissions
+        .float-left
+          h3 My personal information
+          form#submit-infos
+            p
+              label(for='login-email') E-mail
+              br
+              input#login-email(type='email', name='login-email', placeholder='Your e-mail', value='{{email}}', required='', aria-required='true')
+            p
+              label(for='login-pwd') Password
+              br
+              input#login-pwd(type='password', name='login-pwd', placeholder='Your password', required='', aria-required='true')
+              span.error-password
+            input#personal-info-change(type='submit', disabled='', name='personal-info-change', value='Change')
+            p
+              a(href='#') Forgot password?
+        h3 Submit imagery
+          form#form-imagery-submit
+            .float-left
+              #imagery
+                .abs-center
+                  p Drag and drop your imagery here
+            include imageryOptions
+            .button-challenge
+              input#imagery-submit(type='submit', disabled='', name='imagery-submit', value='Submit')

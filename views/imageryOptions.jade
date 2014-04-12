@@ -1,0 +1,56 @@
+.float-left
+  .float-left
+    h4 Object Type
+    ul.checkbox-list
+      li
+        input#submit-neo(type='radio', name='object', value='value')
+        label(for='submit-neo') NEOs
+      li
+        input#submit-1-km-neo(type='radio', name='object', value='value')
+        label(for='submit-1-km-neo') 1 + KM NEOs
+      li
+        input#submit-hazardous(type='radio', name='object', value='value')
+        label(for='submit-hazardous') Hazardous
+  .float-left
+    h4 Orbit Type
+    ul.checkbox-list
+      li
+        input#submit-inner-solar.category(type='radio', name='selection', value='value')
+        label(for='submit-inner-solar') Inner Solar
+        ul.checkbox-children
+          li
+            input#submit-atiras(type='radio', name='selection', value='value')
+            label(for='submit-atiras') Atiras
+          li
+            input#submit-atens(type='radio', name='selection', value='value')
+            label(for='submit-atens') Atens
+          li
+            input#submit-apollos(type='radio', name='selection', value='value')
+            label(for='submit-apollos') Apollos
+      li
+        input#submit-near-mars.category(type='radio', name='selection', value='value')
+        label(for='submit-near-mars') Near Mars Objects
+        ul.checkbox-children
+          li
+            input#submit-hungarias(type='radio', name='selection', value='value')
+            label(for='submit-hungarias') Hungarias
+          li
+            input#submit-mars-crossers(type='radio', name='selection', value='value')
+            label(for='submit-mars-crossers') Mars Crossers
+      li
+        input#outer-solar.category(type='radio', name='selection', value='value')
+        label(for='submit-outer-solar') Outer Solar
+        ul.checkbox-children
+          li
+            input#submit-centaurus(type='radio', name='selection', value='value')
+            label(for='submit-centaurus') Centaurus
+          li
+            input#submit-plutinos(type='radio', name='selection', value='value')
+            label(for='submit-plutinos') Plutinos
+          li
+            input#submit-classical(type='radio', name='selection', value='value')
+            label(for='submit-classical') Classical TNOs
+          li
+            input#submit-other(type='radio', name='selection', value='value')
+            label(for='submit-other') Other TNOs
+
