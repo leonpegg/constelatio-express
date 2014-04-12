@@ -8,10 +8,4 @@ router.get('/', function (req, res) {
     });
 });
 
-router.get('/test/hello', function (req, res) {
-    res.render('homepage', {
-        currentUser: ''
-    });
-});
-
 module.exports = router;
