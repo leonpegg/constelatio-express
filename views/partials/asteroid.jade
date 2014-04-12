@@ -1,26 +1,26 @@
 article.item(role='article')
-  a(href='{{pathFor "resultPage"}}')
-    h2 {{name}}
-    img(src='{{imagePath}}', alt='{{imageDesc}}')
+  a(href='#')
+    h2 {{asteroid.name}}
+    img(src='{{asteroid.imagePath}}', alt='{{asteroid.imageDesc}}')
   .item-desc
     p
       | Semimajor Axis :
-      span {{semimajorAxis}}
+      span {{asteroid.semimajorAxis}}
       br
       | Eccentricity :
-      span {{eccentricity}}
+      span {{asteroid.eccentricity}}
       br
       | Inclination :
-      span {{inclination}}
+      span {{asteroid.inclination}}
       br
       | Perihelion Arg. :
-      span {{perihelionArg}}
+      span {{asteroid.perihelionArg}}
       br
       | Asc. Node :
-      span {{ascendingNode}}
+      span {{asteroid.ascendingNode}}
       br
       | Mean Anom. :
-      span {{meanAnomaly}}
+      span {{asteroid.meanAnomaly}}
   footer.item-footer
     a.comment(href='#') Comment
     a.bookmark(href='#') Bookmark
