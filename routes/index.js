@@ -22,9 +22,16 @@ router.get('/login', function (req, res) {
     });
 });
 
-/* GET explore */
+/* GET register */
 router.get('/register', function (req, res) {
     res.render('register', {
+        currentUser: ''
+    });
+});
+
+/* GET register */
+router.get('/profile', function (req, res) {
+    res.render('profile', {
         currentUser: ''
     });
 });
