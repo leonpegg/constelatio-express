@@ -4,6 +4,7 @@ favicon = require("static-favicon")
 logger = require("morgan")
 cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
+request = require("request")
 routes = require("./routes/index")
 app = express()
 
@@ -18,6 +19,19 @@ app.use cookieParser()
 app.use require('express-coffee')
   path: path.join(__dirname, "public")
 app.use express.static(path.join(__dirname, "public"))
+
+app.use "/api", (req, res) ->
+  url = "www.asterank.com/api/" + req.url
+  r = null
+  if req.method is "POST"
+    r = request.post(
+      uri: url
+      json: req.body
+    )
+  else
+    r = request(url)
+  req.pipe(r).pipe res
+
 app.use "/", routes
 
 #/ catch 404 and forwarding to error handler
