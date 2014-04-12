@@ -15,6 +15,8 @@ app.use logger("dev")
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
+app.use require('express-coffee')
+  path: path.join(__dirname, "public")
 app.use express.static(path.join(__dirname, "public"))
 app.use "/", routes
 
