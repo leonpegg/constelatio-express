@@ -2,7 +2,7 @@
   'use strict';
   angular.module('constelatioApp').controller('ExploreCtrl', [
     '$scope', '$http', function($scope, $http) {
-      return $http.get("/asterank/api/rankings?sort_by=score&limit=400").success(function(data) {
+      return $http.get("/asterank/api/rankings?sort_by=score&limit=4000").success(function(data) {
         return $scope.asteroids = data;
       });
     }

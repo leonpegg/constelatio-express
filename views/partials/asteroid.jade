@@ -5,22 +5,22 @@ article.item(role='article')
   .item-desc
     p
       | Semimajor Axis :
-      span {{asteroid.a}}
+      span {{asteroid.a | number : 3}}
       br
       | Eccentricity :
-      span {{asteroid.e}}
+      span {{asteroid.e | number : 3}}
       br
       | Inclination :
-      span {{asteroid.i}}
+      span {{asteroid.i | number : 3}}
       br
       | Perihelion Arg. :
-      span {{asteroid.w}}
+      span {{asteroid.w | number : 3}}
       br
       | Asc. Node :
-      span {{asteroid.om}}
+      span {{asteroid.om | number : 3}}
       br
       | Mean Anom. :
-      span {{asteroid.ma}}
+      span {{asteroid.ma | number : 3}}
   footer.item-footer
     a.comment(href='#') Comment
     a.bookmark(href='#') Bookmark
