@@ -209,22 +209,22 @@ a{
 .btn-get-started{
     padding: 21px 20px;
     color: #fff;
-    background: rgba(54, 166, 255, 0.8) url('icon-rocket.png') no-repeat 15px center;
+    background: rgba(54, 166, 255, 0.8) url('../img/icon-rocket.png') no-repeat 15px center;
     background-size: 20px;
 }
 .btn-get-started:hover{
-    background: rgba(26, 93, 173, 1.0) url('icon-rocket.png') no-repeat 15px center;
+    background: rgba(26, 93, 173, 1.0) url('../img/icon-rocket.png') no-repeat 15px center;
     background-size: 20px;
 }
 .btn-explore{
     padding: 20px;
     color: #fff;
     border: 1px solid #fff;
-    background: url('icon-telescope.png') no-repeat 15px center;
+    background: url('../img/icon-telescope.png') no-repeat 15px center;
 }
 .btn-explore:hover{
     color: #777;
-    background: rgba(255, 255, 255, 1.0) url('icon-telescope-hover.png') no-repeat 15px center;
+    background: rgba(255, 255, 255, 1.0) url('../img/icon-telescope-hover.png') no-repeat 15px center;
 }
 
 .start-buttons a:first-child{
@@ -595,7 +595,7 @@ ul.checkbox-list li > ul li:before{
     display: inline-block;
     width: 12px;
     height: 13px;
-    background: url('checkbox-arrow.png') no-repeat center;
+    background: url('../img/checkbox-arrow.png') no-repeat center;
 }
 
 .results-bg{
@@ -943,24 +943,24 @@ ul.checkbox-list li > ul li:before{
     margin-bottom: 0;
 }
 .facebook-login{
-    background: url('login-facebook-hover.png') no-repeat left center;
+    background: url('../img/login-facebook-hover.png') no-repeat left center;
 }
 .facebook-login:hover{
-    background: url('login-facebook.png') no-repeat left center;
+    background: url('../img/login-facebook.png') no-repeat left center;
 }
 
 .twitter-login{
-    background: url('login-twitter-hover.png') no-repeat left center;
+    background: url('../img/login-twitter-hover.png') no-repeat left center;
 }
 .twitter-login:hover{
-    background: url('login-twitter.png') no-repeat left center;
+    background: url('../img/login-twitter.png') no-repeat left center;
 }
 
 .googleplus-login{
-    background: url('sprite-social.png') no-repeat 0 -162px;
+    background: url('../img/sprite-social.png') no-repeat 0 -162px;
 }
 .googleplus-login:hover{
-    background: url('sprite-social.png') no-repeat 0 -58px;
+    background: url('../img/sprite-social.png') no-repeat 0 -58px;
 }
 
 /*
@@ -1101,13 +1101,13 @@ ul.social-links li a{
     text-indent: -5000px;
 }
 .facebook{
-    background: url('icon-facebook.png') no-repeat center;
+    background: url('../img/icon-facebook.png') no-repeat center;
 }
 .twitter{
-    background: url('icon-twitter.png') no-repeat center;
+    background: url('../img/icon-twitter.png') no-repeat center;
 }
 .google{
-    background: url('icon-googleplus.png') no-repeat center;
+    background: url('../img/icon-googleplus.png') no-repeat center;
 }
 
 .mail{
