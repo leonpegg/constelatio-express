@@ -1,26 +1,26 @@
 article.item(role='article')
   a(href='#')
-    h2 {{asteroid.name}}
-    img(src='{{asteroid.imagePath}}', alt='{{asteroid.imageDesc}}')
+    h2 {{asteroid.full_name}}
+    img(src='img/img-apophis.jpg', alt='{{asteroid.imageDesc}}')
   .item-desc
     p
       | Semimajor Axis :
-      span {{asteroid.semimajorAxis}}
+      span {{asteroid.a}}
       br
       | Eccentricity :
-      span {{asteroid.eccentricity}}
+      span {{asteroid.e}}
       br
       | Inclination :
-      span {{asteroid.inclination}}
+      span {{asteroid.i}}
       br
       | Perihelion Arg. :
-      span {{asteroid.perihelionArg}}
+      span {{asteroid.w}}
       br
       | Asc. Node :
-      span {{asteroid.ascendingNode}}
+      span {{asteroid.om}}
       br
       | Mean Anom. :
-      span {{asteroid.meanAnomaly}}
+      span {{asteroid.ma}}
   footer.item-footer
     a.comment(href='#') Comment
     a.bookmark(href='#') Bookmark

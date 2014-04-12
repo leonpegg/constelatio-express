@@ -2,26 +2,9 @@
   'use strict';
   angular.module('constelatioApp').controller('ExploreCtrl', [
     '$scope', '$http', function($scope, $http) {
-      return $scope.asteroids = [
-        {
-          name: 'Apophis',
-          number: 99942,
-          discoveryDate: '2004-06-19',
-          discoveryObservatory: 'Kitt Peak',
-          discoveryAuthors: ['R. A. Tucker', 'D. J. Tholen', 'F. Bernardi'],
-          imagePath: 'img/img-apophis.jpg',
-          imageDesc: 'Image of Apophis',
-          description: 'Apophis was named after blablabla...',
-          orbitType: 'Aten',
-          classification: 'Potentially Hazardous Asteroid',
-          semimajorAxis: 0.9221621,
-          eccentricity: 0.1911112,
-          inclination: 3.33029,
-          perihelionArg: 126.43762,
-          ascendingNode: 204.21430,
-          meanAnomaly: 98.09800
-        }
-      ];
+      return $http.get("/api/asterank?query={\"e\":{\"$lt\":0.1},\"i\":{\"$lt\":4},\"a\":{\"$lt\":1.5}}&limit=10").success(function(data) {
+        return $scope.asteroids = data;
+      });
     }
   ]);
 
