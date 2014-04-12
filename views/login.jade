@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  include searchBar
   .results-bg
     section#login.padding-30
       .wrapper
@@ -31,4 +32,4 @@ block content
             // <a href="#" class="googleplus-login">Login with Google Plus</a>
           h2 Don&#39;t have an account?
           .button-challenge
-            a(href='{{pathFor "register"}}') Register Now !
+            a(href='/register') Register Now !
