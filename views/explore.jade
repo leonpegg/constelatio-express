@@ -2,9 +2,9 @@ extends layout
 
 block content
   include searchBar
-  .results-bg
+  .results-bg(ng-controller='ExploreCtrl')
     section#results.wrapper.padding-30
       #search-results
-        include resultItem
+        asteroid(ng-repeat='asteroid in asteroids')
       .button-challenge
         a(href='#') More results
