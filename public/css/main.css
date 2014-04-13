@@ -665,11 +665,11 @@ ul.checkbox-list li > ul li:before {
     box-shadow: 2px 1px 2px 0px rgba(90, 90, 90, 0.4);
 }
 #results .item a h2 {
-    margin: 0;
+    margin: 0 auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+    text-align: center;
 }
 #results .item a img {
     width: 100%;
@@ -690,6 +690,10 @@ ul.checkbox-list li > ul li:before {
     font-size: 0.9em;
     font-weight: 600;
     text-align: right;
+}
+.item-footer{
+    margin: 0 auto;
+    text-align: center;
 }
 .comment {
     display: inline-block;
@@ -726,9 +730,10 @@ ul.checkbox-list li > ul li:before {
 }
 .bookmark {
     display: inline-block;
-    float: right;
-    width: 30%;
+    /*float: right;*/
+    width: 50%;
     height: 40px;
+    margin: 0 auto;
     padding: 0 5%;
     line-height: 40px;
     border: 1px solid #eeb44f;
