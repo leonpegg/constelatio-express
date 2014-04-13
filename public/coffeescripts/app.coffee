@@ -1,3 +1,3 @@
 'use strict'
 
-angular.module('constelatioApp', [])
+angular.module('constelatioApp', ['angucomplete'])
