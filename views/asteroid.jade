@@ -1,43 +1,37 @@
-extends layout
+section#asteroid.padding-30(ng-show='asteroid')
+  .wrapper
+    .float-left
+      h2 {{asteroid.originalObject.full_name}}
 
-block content
-  include searchBar
-  .results-bg
-    section#asteroid.padding-30
-      .wrapper
-        .float-left
-          h2 {{asteroid.full_name}}
-        
-          img(src='img/img-apophis.jpg', alt='{{asteroid.imageDesc}}')
-          
-        .float-left.properties
-          h3
-            | Semimajor axis : 
-            span {{asteroid.a | number : 3}}
-            br
-            | Eccentricity :
-            span {{asteroid.e | number : 3}}
-            br
-            | Inclination :
-            span {{asteroid.i | number : 3}}
-            br
-            | Perihelion Arg. :
-            span {{asteroid.w | number : 3}}
-            br
-            | Asc. Node :
-            span {{asteroid.om | number : 3}}
-            br
-            | Mean Anom. :
-            span {{asteroid.ma | number : 3}}
+      img(src='img/img-apophis.jpg', alt='{{asteroid.originalObject.imageDesc}}')
 
-          div#orbit.button-challenge
-            a.click-popup(href='/asteroid#orbit') Show Orbit 
-            a.click-popup(href='/asteroid#') Hide Orbit 
-            .orbit-popup
-        #comments 
-          h2 Comments
-          #disqus_thread
-          script.
-            var disqus_shortname = 'constelatioapp';(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();
-          .button-challenge
-            a(href='/register') Register Now !
+    .float-left.properties
+      h3
+        | Semimajor axis :
+        span {{asteroid.originalObject.a | number : 3}}
+        br
+        | Eccentricity :
+        span {{asteroid.originalObject.e | number : 3}}
+        br
+        | Inclination :
+        span {{asteroid.originalObject.i | number : 3}}
+        br
+        | Perihelion Arg. :
+        span {{asteroid.originalObject.w | number : 3}}
+        br
+        | Asc. Node :
+        span {{asteroid.originalObject.om | number : 3}}
+        br
+        | Mean Anom. :
+        span {{asteroid.originalObject.ma | number : 3}}
+
+      div#orbit.button-challenge
+        a.click-popup.iframe(ng-href='3d.html?fullname={{asteroid.originalObject.prov_des > 0 ? asteroid.originalObject.prov_des : asteroid.originalObject.full_name}}') Show Orbit
+        .orbit-popup
+    #comments
+      h2 Comments
+      #disqus_thread
+      script.
+        var disqus_shortname = 'constelatioapp';(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();
+      .button-challenge
+        a(href='/register') Register Now !

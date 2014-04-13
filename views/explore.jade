@@ -4,6 +4,7 @@ block content
   div(ng-controller='ExploreCtrl')
     include searchBar
     .results-bg
+      include asteroid
       section#results.wrapper.padding-30
         #search-results
           asteroid(ng-repeat='asteroid in asteroids')
