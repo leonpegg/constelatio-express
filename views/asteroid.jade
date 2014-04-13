@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  include searchBar
+  .results-bg
+    section#asteroid.padding-30
+      .wrapper
+        .float-left
+          h2 {asteroid.full_name}}
+        
+          img(src='img/img-apophis.jpg', alt='{{asteroid.imageDesc}}')
+          
+        .float-left.properties
+          h3
+            | Semimajor axis : 
+            span {asteroid.a | number : 3}}
+            br
+            | Eccentricity :
+            span {{asteroid.e | number : 3}}
+            br
+            | Inclination :
+            span {{asteroid.i | number : 3}}
+            br
+            | Perihelion Arg. :
+            span {{asteroid.w | number : 3}}
+            br
+            | Asc. Node :
+            span {{asteroid.om | number : 3}}
+            br
+            | Mean Anom. :
+            span {{asteroid.ma | number : 3}}
+
+          div#orbit.button-challenge
+            a.click-popup(href='/asteroid#orbit') Show Orbit 
+            a.click-popup(href='/asteroid#') Hide Orbit 
+            .orbit-popup
+        #comments 
+          h2 Comments
+          <div class="disqus : id"></div>
+          .button-challenge
+            a(href='/register') Register Now !
