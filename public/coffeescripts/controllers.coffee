@@ -8,4 +8,6 @@ angular.module('constelatioApp')
       $scope.asteroid =
         originalObject: asteroid
         title: "#{asteroid.prov_des} #{asteroid.full_name}"
+    $scope.fancybox = () ->
+      $('.iframe').fancybox {width:"100%", height: "100%"}
   ]
