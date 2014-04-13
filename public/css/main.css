@@ -56,6 +56,15 @@ html a {
     -webkit-font-smoothing: antialiased!important;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
 }
+
+body:after{
+    display: none;
+    content: url(../img/login-facebook-hover.png)
+    url(../img/login-twitter-hover.png)
+    url(../img/login-facebook.png)
+    url(../img/login-twitter.png);
+}
+
 a {
     -webkit-transition: .30s;
     -moz-transition: .30s;
@@ -145,7 +154,7 @@ a {
     text-decoration: none;
 }
 #login-link,
-#logout-link {
+#logout-link, {
     padding: 6px 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -267,14 +276,16 @@ a {
     margin-top: 0;
 }
 #main section h2,
-#login h2 {
+#login h2,
+#asteroid h2 {
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     font-size: 1.55em;
     font-weight: 700;
     color: #222;
 }
 #main section p,
-#login p {
+#login p,
+#asteroid p {
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     font-size: 0.975em;
     font-weight: 400;
@@ -458,7 +469,7 @@ a {
 .inner-bar input[type="submit"] {
     width: 66px;
     height: 46px;
-    margin: 0 0 0 -71px;
+    margin: 0 0 0 -66px;
     /*
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     font-size: 1.0em;
@@ -760,13 +771,15 @@ ul.checkbox-list li > ul li:before {
 */
 
 #login,
-#profile {
+#profile,
+#asteroid {
     margin: 0 auto;
     padding-top: 60px;
     padding-bottom: 60px;
 }
 #login .wrapper,
-#profile .wrapper {
+#profile .wrapper,
+#asteroid .wrapper {
     padding: 20px;
     border: 6px solid rgba(255, 255, 255, 0.4);
     background: #ededed;
@@ -778,12 +791,14 @@ ul.checkbox-list li > ul li:before {
     box-shadow: 2px 1px 2px 0px rgba(90, 90, 90, 0.4);
 }
 #login .wrapper:after,
-#profile .wrapper:after {
+#profile .wrapper:after,
+#asteroid .wrapper:after {
     content: "";
     display: table;
     clear: both;
 }
-#login .float-left {
+#login .float-left,
+#asteroid .float-left {
     width: 48.75%;
     margin: 0 0 0 2.5%;
     /* padding-left: 2.5%;
@@ -796,7 +811,8 @@ ul.checkbox-list li > ul li:before {
     border-left: 2px dashed rgba(255, 255, 255, 0.7);*/
 }
 #login .float-left:first-child,
-#profile .float-left:first-child {
+#profile .float-left:first-child,
+#asteroid .float-left:first-child {
     margin: 0 0 0 0;
     /*padding-left: 0;
     border: 0;*/
@@ -811,7 +827,8 @@ ul.checkbox-list li > ul li:before {
     margin: 8px 0 0 0;
 }
 #login .float-left p a,
-#profile .float-left p a {
+#profile .float-left p a,
+#asteroid .float-left p a {
     font-family: 'Roboto', Helvetica, sans-serif;
     font-size: 0.9em;
     font-weight: 500;
@@ -819,7 +836,8 @@ ul.checkbox-list li > ul li:before {
     text-decoration: none;
 }
 #login .float-left p a:hover,
-#profile .float-left p a:hover {
+#profile .float-left p a:hover,
+#asteroid .float-left p a:hover {
     color: #000;
     text-decoration: none;
 }
@@ -978,6 +996,75 @@ ul.checkbox-list li > ul li:before {
     font-size: 0.9em;
     font-weight: normal;
 }
+
+
+/*
+///////////////
+// Comments
+///////////////
+*/
+
+#asteroid .float-left h3{
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: normal;
+}
+#asteroid .float-left span{
+    float: right;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+#asteroid .properties{
+    padding-top: 50px;
+}
+
+#comments{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    clear: both;
+}
+#asteroid .button-challenge a{
+    margin: 0;
+}
+
+.orbit-popup{
+    display: none;
+}
+
+#orbit >a:last-of-type{
+    display: none;
+}
+
+#orbit:not(:target) > a:last-of-type,
+#orbit:target > a:first-of-type{
+    display: none;
+}
+
+#orbit:not(:target) > a:first-of-type,
+#orbit:target > a:last-of-type{
+    display: block;
+}
+#orbit:target > .orbit-popup{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    display: block;
+    width: 300px;
+    height: 300px;
+    background: #222;
+    border: 6px solid #fff;
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+     box-shadow: inset 0 0 8px 3px rgba(0, 0, 0, 0.9), 0px 10px 10px -10px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: inset 0 0 8px 3px rgba(0, 0, 0, 0.9), 0px 10px 10px -10px rgba(0, 0, 0, 0.45);
+    -webkit-box-shadow: inset 0 0 8px 3px rgba(0, 0, 0, 0.9), 0px 10px 10px -10px rgba(0, 0, 0, 0.45);
+
+
+}
+
 /*
 ///////////////
 // Footer
@@ -1222,4 +1309,8 @@ ul.inline-menu li {
     h3 {
         page-break-after: avoid;
     }
+}
+
+.item img{
+    width: 100%;
 }
