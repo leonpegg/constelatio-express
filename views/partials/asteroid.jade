@@ -1,5 +1,5 @@
 article.item(role='article')
-  a(ng-href='/asteroid/{{asteroid.prov_des > 0 ? asteroid.prov_des : asteroid.full_name}}')
+  a(ng-click='selectAsteroid(asteroid)', href='')
     h2 {{asteroid.prov_des > 0 ? asteroid.prov_des : asteroid.full_name}}
     img(src='img/img-apophis.jpg', alt='{{asteroid.imageDesc}}')
   .item-desc
