@@ -26,6 +26,9 @@
 	#login .wrapper{
 		width: 1150px;
 	}
+	#asteroid .wrapper{
+		width: 1150px;
+	}
 }
 @media only screen and (min-width: 1201px) and (max-width: 1600px){
 	/* 4 Cols layout */
