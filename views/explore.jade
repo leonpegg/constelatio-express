@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  include searchBar
-  .results-bg(ng-controller='ExploreCtrl')
-    section#results.wrapper.padding-30
-      #search-results
-        asteroid(ng-repeat='asteroid in asteroids')
-      .button-challenge
-        a(href='#') More results
+  div(ng-controller='ExploreCtrl')
+    include searchBar
+    .results-bg
+      section#results.wrapper.padding-30
+        #search-results
+          asteroid(ng-repeat='asteroid in asteroids')
+        .button-challenge
+          a(href='#') More results

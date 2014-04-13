@@ -4,5 +4,5 @@ section#search.padding-30
       form
         .simple-search
           .inner-bar
-            angucomplete(id='search', placeholder='Enter asteroid name, number, designation...', titlefield='prov_des,full_name', url='/asterank/api/autocomplete?query=', selectedObject='selectedAsteroid', datafield='results', name='search')
+            angucomplete(id='search', placeholder='Enter asteroid name, number, designation...', titlefield='prov_des,full_name', url='/asterank/api/autocomplete?query=', selectedObject='asteroids', datafield='results', name='search')
             input(type='submit', name='search', value='Go')
