@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><base href="/"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Constelatio - Open source asteroid imagery sharing platform</title><meta name="description" content="Constelatio is the first open-source platform for sharing crowd-sourced asteroid imagery, including observations that have already have been logged, as well as newly observed Near Earth Objects."><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="css/normalize.min.css"><link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"></head><body ng-app="constelatioApp"><div id="container"><header id="header"><div id="nav-bar" role="banner"><div class="wrapper padding-30"><p id="logo-mini"><a href="/">Constelat<span>io</span></a></p><nav id="navigation" role="navigation"><ul><li><a id="login-link" href="/login">Login</a></li><li class="menu-link"><a href="explore">Browse</a></li></ul></nav></div></div></header><div id="main" role="main"><section id="search" class="padding-30"><div class="wrapper"><div id="search-bar"><form><div class="simple-search"><div class="inner-bar"><input type="text" name="search" placeholder="Enter asteroid name, number, designation..."><input type="submit" name="search" value="Go"><!--spana#options.more-options(href='#') More Options--></div></div><!--.advanced-search.filters
+  #observation.float-left
+    h4 Observation
+    ul.checkbox-list
+      li
+        label(for='date') Date
+        input#date(type='date', name='date')
+      li
+        legend Observatory
+        select#observatory(aria-label='observatory')
+          option(value='mauna-kea') Mauna Kea
+  .float-left
+    h4 Object Type
+    ul.checkbox-list
+      li
+        input#neo(type='checkbox', name='neo', value='value')
+        label(for='neo') NEOs
+      li
+        input#1-km-neo(type='checkbox', name='1-km-neo', value='value')
+        label(for='1-km-neo') 1 + KM NEOs
+      li
+        input#hazardous(type='checkbox', name='hazardous', value='value')
+        label(for='hazardous') Hazardous
+  .float-left
+    h4 Orbit Type
+    ul.checkbox-list
+      li
+        input#inner-solar.category(type='checkbox', name='inner-solar', value='value')
+        label(for='inner-solar') Inner Solar
+        ul.checkbox-children
+          li
+            input#atiras(type='checkbox', name='atiras', value='value')
+            label(for='atiras') Atiras
+          li
+            input#atens(type='checkbox', name='atens', value='value')
+            label(for='atens') Atens
+          li
+            input#apollos(type='checkbox', name='apollos', value='value')
+            label(for='Apollos') Apollos
+      li
+        input#near-mars.category(type='checkbox', name='near-mars', value='value')
+        label(for='near-mars') Near Mars Objects
+        ul.checkbox-children
+          li
+            input#hungarias(type='checkbox', name='hungarias', value='value')
+            label(for='hungarias') Hungarias
+          li
+            input#mars-crossers(type='checkbox', name='mars-crossers', value='value')
+            label(for='mars-crossers') Mars Crossers
+      li
+        input#outer-solar.category(type='checkbox', name='outer-solar', value='value')
+        label(for='outer-solar') Outer Solar
+        ul.checkbox-children
+          li
+            input#centaurus(type='checkbox', name='centaurus', value='value')
+            label(for='centaurus') Centaurus
+          li
+            input#plutinos(type='checkbox', name='plutinos', value='value')
+            label(for='plutinos') Plutinos
+          li
+            input#classical(type='checkbox', name='classical', value='value')
+            label(for='classical') Classical TNOs
+          li
+            input#other(type='checkbox', name='other', value='value')
+            label(for='other') Other TNOs
+  #properties.float-left
+    h4 Properties
+    ul.checkbox-list
+      li
+        label(for='semimajor') Semimajor Axis
+        input#semimajor(type='number', name='semimajor', value='value')
+      li
+        label(for='eccentricity') Eccentricity
+        input#eccentricity(type='number', name='eccentricity', value='value')
+      li
+        label(for='inclination') Inclination
+        input#inclination(type='number', name='inclination', value='value')
+      li
+        label(for='perihelion-arg') Perihelion Arg.
+        input#perihelion-arg(type='number', name='perihelion-arg', value='value')
+      li
+        label(for='ascending-node') Asc. Node
+        input#ascending-node(type='number', name='ascending-node', value='value')
+      li
+        label(for='mean-anomaly') Mean Anomaly
+        input#mean-anomaly(type='number', name='mean-anomaly', value='value')
+      li
+        label(for='mean-daily-motion') Mean Daily Motion
+        input#mean-daily-motion(type='number', name='mean-daily-motion', value='value')
+      li
+        label(for='perihelion-dist') Perihelion Dist.
+        input#perihelion-dist(type='number', name='perihelion-dist', value='value')
+      li
+        label(for='aphelion-dist') Aphelion Dist.
+        input#aphelion-dist(type='number', name='aphelion-dist', value='value')
+      li
+        label(for='period') Period
+        input#period(type='number', name='period', value='value')
+      li
+        label(for='abs-magnitude') Abs. Magnitude
+        input#abs-magnitude(type='number', name='abs-magnitude', value='value')--></form></div></div></section><div class="results-bg"><section id="login" class="padding-30"><div class="wrapper"><h2>Credits</h2><div class="login-inner-p"><p>Credits to the authors for all third-party resources used in Constelatio. </p><p>Telescope icon on homepage : freepix.com<br>Launch icon on homepage : visualpharm.com<br>Nasa image : Courtesy of NASA<br>MPC image : Courtesy of MPC <br>Milky Way image on homepage : Jack Fusco<br>Asteroid image on homepage : NASA, ESA, M. A. Garlick, University of Warwick<br>Observatory image on homepage : Babak Tafreshi, ESO<br>Space shuttle image : Courtesy of NASA<br>Social Network icons : Ian Barnard<br>Arrow icon : Spinking<br>Three.js Visualisation API : asterank.com</p></div></div></section></div></div><footer id="footer" class="padding-30"><div class="wrapper"><div class="float-left"><h4>Pages</h4><ul class="pages"><li><a href="/">Home</a></li><li><a href="explore">Explore</a></li><li><a href="login">Login</a></li><li><a href="register">Register</a></li></ul><ul class="pages"><li><a href="credits.html">Credits</a></li><li><a href="#">Terms</a></li><li><a href="#">Copyright</a></li><li><a href="#">Privacy</a></li></ul></div><div class="float-right"><h4>Be in touch</h4><p class="mail">Drop us a line on social networks or use our e-mail address.</p><ul class="inline-menu social-links"><li><a href="https://www.facebook.com/pages/Constelatio/737595616273296" class="facebook">Facebook</a></li><li><a href="http://twitter.com/Constelatio" class="twitter">Twitter</a></li><!-- lia.google(href='#') Google Plus--></ul><p class="mail"><a href="mailto:contact@constelat.io">contact@constelat.io</a></p></div><div class="license"><h4>Disclaimer</h4><img src="img/icon-mit.png" width="70" height="70" alt="MIT License Logo" class="float-left"><p>This website and all of its contents are available under the <a href="http://opensource.org/licenses/MIT">The MIT License (MIT)</a>. You are free to copy and redistribute the material in any format, and free to transform and build upon the material for any purpose.</p><p>Some images on this website are coming from external sources. Even if we have done our best to use copyright-free images, and give credit to their authors under the <a href="credits.html">Credits page</a>, it is still possible that a few were forgotten in the process. If you are the owner of such content and if you think it has been unappropriately used, please contact us and we will give you credit or remove the content after review as soon as possible.</p></div><p class="copyright">Developed with love by <a href="http://stylizit.com">Stylizit, </a><a href="http://github.com/leonpegg">Leon Pegg, </a><a href="#">Elias Khoury, </a><a href="#">Derek Jones, </a><a href="#">Freddie Barr-Smith, </a><a href="#">Florian Rathgeber </a><br><a href="http://stylizit.com"><img src="img/logo_stylizit_solo_6.png" width="32" height="32" alt="Logo of Stylizit, a London-based web development studio"></a></p></div></footer></div><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js" type="text/javascript"></script><script src="javascripts/app.js" type="text/javascript"></script><script src="javascripts/controllers.js" type="text/javascript"></script><script src="javascripts/directives.js" type="text/javascript"></script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script><script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script><script>$("body").bind("DOMSubtreeModified", function(){$('.iframe').fancybox();});</script></body></html>
