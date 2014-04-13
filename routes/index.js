@@ -24,7 +24,7 @@ router = express.Router().get("/", function (req, res) {
     res.render("profile", {
         currentUser: ""
     });
-}).get("/asteroid", function (req, res) {
+}).get("/asteroid/:fullname", function (req, res) {
     res.render("asteroid", {
         currentUser: ""
     });
