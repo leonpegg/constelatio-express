@@ -28,9 +28,16 @@ app.use "/asterank", (req, res) ->
       uri: url
       json: req.body
     )
+  # Special case the autocomplete route to wrap response in object
+  else if req.url.substr(0,17) == '/api/autocomplete'
+    r = request
+      url: url
+      json: true
+      , (err, resp, body) ->
+        res.send results: body
   else
     r = request(url)
-  req.pipe(r).pipe res
+    req.pipe(r).pipe res
 
 app.use "/", routes
 
