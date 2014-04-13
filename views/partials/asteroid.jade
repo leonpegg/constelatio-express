@@ -22,5 +22,4 @@ article.item(role='article')
       | Mean Anom. :
       span {{asteroid.ma | number : 3}}
   footer.item-footer
-    //a.comment(href='#') Comment
     a.bookmark(ng-href='3d.html?fullname={{asteroid.prov_des > 0 ? asteroid.prov_des : asteroid.full_name}}', class='iframe') Show Orbit
