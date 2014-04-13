@@ -294,6 +294,7 @@ a {
 .more {
     margin: 20px 0 0 0;
     text-align: right;
+    clear: both;
 }
 #background a {
     color: #000;
@@ -983,6 +984,9 @@ ul.checkbox-list li > ul li:before {
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+#form-imagery-submit{
+    margin-top: 20px;
+}
 #form-imagery-submit .float-left h4 {
     margin-top: 0;
     margin-bottom: 6px;
@@ -992,12 +996,44 @@ ul.checkbox-list li > ul li:before {
 }
 #form-imagery-submit .float-left label,
 #form-imagery-submit .float-left legend {
+    margin-left: 5px;
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     font-size: 0.9em;
     font-weight: normal;
 }
 
+.user-submission{
+    float: left;
+    width: 40%;
+    margin: 0 0 2% 2%;
+    padding: 2%;
+    border: 4px solid #bbb;
 
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.user-submission:nth-child(even){
+    margin-left: 0;
+}
+
+.user-submission h4{
+    margin: 0;
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    font-size: 1.0em;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#profile .user-submission p{
+    margin: 0;
+    font-size: 0.85em;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#profile .more{
+    padding-top: 20px;
+}
 /*
 ///////////////
 // Comments

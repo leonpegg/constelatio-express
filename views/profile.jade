@@ -12,6 +12,18 @@ block content
           | You can also submit your latest imagery and observations.
         .float-left
           h3 My latest submissions
+          .user-submission
+            h4 {asteroid.name}}
+            p.date
+              {submission.date}} 
+          .user-submission
+            h4 {asteroid.name}}
+            p.date
+              {submission.date}} 
+          .user-submission
+            h4 {asteroid.name}}
+            p.date
+              {submission.date}}         
           p.more
             a(href='#') View all submissions
         .float-left
@@ -29,12 +41,13 @@ block content
             input#personal-info-change(type='submit', disabled='', name='personal-info-change', value='Change')
             p
               a(href='#') Forgot password?
-        h3 Submit imagery
+        // h3 Submit imagery
           form#form-imagery-submit
             .float-left
               #imagery
                 .abs-center
                   p Drag and drop your imagery here
+              input#upload-image(type='file', name='upload-image', value='Upload')
             include imageryOptions
             .button-challenge
               input#imagery-submit(type='submit', disabled='', name='imagery-submit', value='Submit')
