@@ -456,8 +456,17 @@ a {
 .inner-bar input {
     display: inline-block;
 }
-.inner-bar input[type="text"] {
+
+.ng-isolate-scope{
+    display: inline-block;
     width: 50%;
+}
+.ngu-complete-holder{
+    width: 100%;
+
+}
+.inner-bar input[type="text"] {
+    width: 100%;
     height: 30px;
     padding: 8px;
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
@@ -488,6 +497,7 @@ a {
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
     -webkit-appearance: none;
+    margin-left: 15px;
 }
 .inner-bar input[type="submit"]:hover {
     color: #000;
@@ -770,6 +780,12 @@ ul.checkbox-list li > ul li:before {
 #search-results .button-challenge {
     padding-top: 30px;
 }
+
+
+
+
+
+
 /*
 ///////////////
 // Login Page
