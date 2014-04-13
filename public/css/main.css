@@ -1004,6 +1004,41 @@ ul.checkbox-list li > ul li:before {
 // User profile / Imagery
 ////////////////
 */
+#asteroid h3{
+    margin-top: 60px;
+}
+#asteroid #form-imagery-submit .float-left{
+    width:100%;
+    float: none;
+}
+
+
+#form-imagery-submit .float-left input, #imagery-submit{
+    margin: 20px 0;
+    padding: 12px 30px;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    background: rgba(79, 163, 229, 1.0);
+    border: 0;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+#form-imagery-submit .float-left input:hover, #imagery-submit:hover{
+    background: rgba(26, 93, 173, 1.0);
+}
+#asteroid #form-imagery-submit .button-challenge, #asteroid #form-imagery-submit .button-challenge a{
+    margin-top: 0;
+}
 
 #imagery {
     position: relative;
