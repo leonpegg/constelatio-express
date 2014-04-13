@@ -1435,3 +1435,7 @@ ul.inline-menu li {
 #disqus_thread{
     max-height: 360px;
 }
+
+#upload-image{
+    text-transform: uppercase;
+}
