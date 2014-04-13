@@ -28,6 +28,15 @@ section#asteroid.padding-30(ng-show='asteroid')
       div#orbit.button-challenge
         a.click-popup.iframe(ng-href='3d.html?fullname={{asteroid.originalObject.prov_des > 0 ? asteroid.originalObject.prov_des : asteroid.originalObject.full_name}}') Show Orbit
         .orbit-popup
+    h3 Submit imagery
+      form#form-imagery-submit
+        .float-left
+          #imagery
+            .abs-center
+              p Drag and drop your imagery here
+          input#upload-image(type='file', name='upload-image', value='Upload')
+        .button-challenge
+          input#imagery-submit(type='submit', disabled='', name='imagery-submit', value='Submit')
     #comments
       h2 Comments
       #disqus_thread
