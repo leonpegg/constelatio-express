@@ -1396,3 +1396,7 @@ ul.inline-menu li {
 .item img{
     width: 100%;
 }
+
+#disqus_thread{
+    max-height: 360px;
+}
