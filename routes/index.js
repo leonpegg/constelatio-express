@@ -28,6 +28,10 @@ router = express.Router().get("/", function (req, res) {
     res.render("asteroid", {
         currentUser: ""
     });
+}).get("/privacy", function (req, res) {
+    res.render("privacy", {
+        currentUser: ""
+    });
 });
 
 module.exports = router;
