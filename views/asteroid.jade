@@ -6,14 +6,14 @@ block content
     section#asteroid.padding-30
       .wrapper
         .float-left
-          h2 {asteroid.full_name}}
+          h2 {{asteroid.full_name}}
         
           img(src='img/img-apophis.jpg', alt='{{asteroid.imageDesc}}')
           
         .float-left.properties
           h3
             | Semimajor axis : 
-            span {asteroid.a | number : 3}}
+            span {{asteroid.a | number : 3}}
             br
             | Eccentricity :
             span {{asteroid.e | number : 3}}
