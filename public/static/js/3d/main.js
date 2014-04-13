@@ -956,7 +956,6 @@ function urldecode(str) {
       return;
     }else if (!locked_object){
      	setLock(urldecode(QueryString.fullname));
-        console.log(urldecode(QueryString.fullname));
     }
 
     if (opts.camera_fly_around) {
